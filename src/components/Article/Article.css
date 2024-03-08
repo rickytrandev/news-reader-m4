@@ -1,0 +1,28 @@
+article {
+  margin: 20px;
+  padding: 20px;
+  border-bottom: 2px solid gray;
+  background-color: #1F1F1F ;
+  display: flex;
+  justify-content: space-between;
+}
+
+article a {
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+article img {
+  width: 150px;
+  margin-left: 10px;
+}

@@ -1,4 +1,4 @@
-{
+export const data = {
   "status": "ok",
   "totalResults": 14610,
   "articles": [
