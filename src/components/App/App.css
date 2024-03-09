@@ -3,3 +3,7 @@ html {
   color: white;
 }
 /* #1F1F1F */
+
+body {
+  margin: 0;
+}

@@ -14,7 +14,7 @@ const article = articles.find(article => article.id === parseInt(id))
             <img src={article.urlToImage} alt="" />
           </div>
           <div className="article-details">
-            <a className="title" href={article.url}>{article.title}</a>
+            <a className="details-title" href={article.url}>{article.title}</a>
             <p>{article.author}</p>
             <p>{article.publishedAt}</p>
             <p>{article.description}</p>
