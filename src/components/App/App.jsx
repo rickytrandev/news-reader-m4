@@ -2,52 +2,74 @@ import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Landing } from "../Landing/Landing.jsx";
 import "./App.css";
-import { data } from "../../data.js";
 import { ArticleDetails } from "../ArticleDetails/ArticleDetails.jsx";
 import { Header } from "../Header/Header.jsx";
-import { mockSearch,mockTrendingRequest, getSearchResults } from "../../apiCalls";
+import { getSearchResults, getTrending } from "../../apiCalls";
 
 export function App() {
   const [trendingArticles, setTrendingArticles] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
   const [displayedArticles, setDisplayedArticles] = useState([]);
-
+  const [error, setError] = useState("");
 
   function handleSearch(query) {
     getSearchResults(query)
       .then((res) => {
         if (!res.ok) {
           console.log(res.status);
-          throw new Error(`Unable to fetch new articles status ${res.status}`)
+          throw new Error(`Unable to fetch new articles status ${res.status}`);
         }
-      setSearchResults(res.articles);
-    });
+        return res.json();
+      })
+      .then((data) => {
+        const cleanedArticles = data.articles.map((article, index) => {
+          return { ...article, id: index };
+        });
+        setSearchResults(cleanedArticles);
+      })
+      .catch((error) => setError(error.message));
+  }
+
+  function handleClick() {
+    setDisplayedArticles(trendingArticles);
+    setSearchResults([]);
   }
 
   // set initial trending articles
-  useEffect(() => { 
-    mockTrendingRequest().then((response) => {
-      setTrendingArticles(response.articles);
-      setDisplayedArticles(response.articles);
-    });
-  },[]);
+  useEffect(() => {
+    getTrending()
+      .then((res) => {
+        if (!res.ok) {
+          console.log(res.status);
+          throw new Error(`Unable to fetch new articles status ${res.status}`);
+        }
+        return res.json();
+      })
+      .then((data) => {
+        const cleanedArticles = data.articles.map((article, index) => {
+          return { ...article, id: index };
+        });
+        setTrendingArticles(cleanedArticles);
+        setDisplayedArticles(cleanedArticles);
+      })
+      .catch((error) => setError(error.message));
+  }, []);
 
   // if no search results, display trending articles
   useEffect(() => {
-    setDisplayedArticles(searchResults.length ? searchResults : trendingArticles);
-  },[searchResults]);
+    setDisplayedArticles(
+      searchResults.length ? searchResults : trendingArticles
+    );
+  }, [searchResults]);
 
-  // useEffect(() => {
-  //   const cleanedArticles = data.articles.map((article, index) => {
-  //     return { ...article, id: index };
-  //   });
-  //   setTrendingArticles(cleanedArticles);
-  // }, [data.articles]);
   return (
     <>
-      <Header handleSearch={handleSearch} />
+      <Header handleClick={handleClick} handleSearch={handleSearch} />
       <Routes>
-        <Route path="/" element={<Landing data={displayedArticles} />} />
+        <Route
+          path="/"
+          element={<Landing searchResults={searchResults} data={displayedArticles} error={error} />}
+        />
         <Route
           path="/article/:id"
           element={<ArticleDetails articles={displayedArticles} />}

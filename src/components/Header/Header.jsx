@@ -1,23 +1,31 @@
 import "./Header.css";
-
+import { Link } from "react-router-dom";
 import { useState } from "react";
 
-export function Header({ handleSearch }) {
+export function Header({ handleClick, handleSearch }) {
   const [query, setQuery] = useState("");
 
   function handleChange(event) {
     setQuery(event.target.value);
   }
 
+  function handleTitleClick() {
+    handleClick();
+    setQuery("");
+  }
+
   return (
     <header>
       <div className="title">
-        <h1>News Reader</h1>
+        <Link onClick={handleTitleClick} to="/" >
+          News Reader
+        </Link>
       </div>
       <div class="search-bar">
         <input
           type="text"
           onChange={handleChange}
+          value={query}
           placeholder="Search topics..."
         />
         <button onClick={() => handleSearch(query)} class="search-button">

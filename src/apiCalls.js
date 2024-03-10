@@ -44,3 +44,7 @@ export function mockTrendingRequest() {
 export function getSearchResults(query) {
   return fetch(`https://newsapi.org/v2/everything?q=+${query}&sortBy=popularity&apiKey=577266e24cf74d529491d477a433bbdf&pageSize=20`)
 }
+
+export function getTrending() {
+  return fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=577266e24cf74d529491d477a433bbdf`)
+}
