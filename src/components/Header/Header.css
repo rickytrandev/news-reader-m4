@@ -1,6 +1,6 @@
 header {
   width: 100%;
-  background-color: #1F1F1F;
+  background-color: #1f1f1f;
   height: 10vh;
   position: relative;
   display: flex;
@@ -9,9 +9,20 @@ header {
 }
 
 .title {
+  font-size: 2rem;
   position: absolute;
   left: 0;
   margin: 20px;
+
+  & :hover {
+    cursor: pointer !important;
+    text-decoration: underline;
+  }
+
+  & a {
+    color: white;
+    text-decoration: none;
+  }
 }
 
 input {
@@ -20,7 +31,7 @@ input {
   border: none;
   border-radius: 20px;
   color: white;
-  background-color: #292A2D;
+  background-color: #292a2d;
 }
 .search-bar {
   width: 50%;
