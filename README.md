@@ -1,8 +1,21 @@
-# React + Vite
+# News Reader UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+News Reader is a clone of Google News which should demonstrate knowledge of React fundamentals. Utilizing the News API, asynchronous JS, and fetch API to serve articles to the user. On initial load, trending articles are displayed on the landing page. The user can also query specific topics using the search bar. Clicking on the title `News Reader` will rest the displayed articles back to the "trending" articles  
 
-Currently, two official plugins are available:
+[project board](https://website-name.com](https://github.com/users/rickytrandev/projects/5)https://github.com/users/rickytrandev/projects/5)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[wireframe](https://www.figma.com/file/plkh2tLqjHYjqRFPLuJzZM/News-Reader?type=design&node-id=0-1&mode=design&t=0gcKFTogdUfbD6U0-0)
+
+## Installation
+#### In your terminal..  
+
+clone the project  
+`git clone git@github.com:rickytrandev/news-reader-m4.git`
+
+install dependencies  
+`npm i`  
+
+start the app  
+`npm run dev`  
+
+navigate to `http://localhost:5173/`
