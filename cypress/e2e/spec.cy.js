@@ -79,45 +79,43 @@ describe("News Reader UI", () => {
   });
 
   it.only("I can query a search topic", () => {
-    cy.intercept("GET", "https://newsapi.org/v2/everything?q=+Ukraine&sortBy=popularity&apiKey=577266e24cf74d529491d477a433bbdf&pageSize=20", {
-      statusCode: 200,
-      fixture: "search.json",
-    }).as("getSearch");
+    cy.intercept(
+      "GET",
+      "https://newsapi.org/v2/everything?q=+Ukraine&sortBy=popularity&apiKey=577266e24cf74d529491d477a433bbdf&pageSize=20",
+      {
+        statusCode: 200,
+        fixture: "search.json",
+      }
+    ).as("getSearch");
     cy.wait("@getTrending");
     cy.get("header input[type='text']").type("Ukraine");
     cy.get(".search-button").click();
 
     cy.wait("@getSearch");
     cy.get(" article .article-details")
-    .first()
-    .find("a")
-    .should(
-      "contain",
-      "Mock Article 1 about Ukraine"
-    );
-  cy.get("article .article-details")
-    .first()
-    .find("p")
-    .should("contain", "Mock Author");
-  cy.get("article .article-details")
-    .first()
-    .find("p")
-    .should("contain", "2022-01-01T00:00:00.000Z");
+      .first()
+      .find("a")
+      .should("contain", "Mock Article 1 about Ukraine");
+    cy.get("article .article-details")
+      .first()
+      .find("p")
+      .should("contain", "Mock Author");
+    cy.get("article .article-details")
+      .first()
+      .find("p")
+      .should("contain", "2022-01-01T00:00:00.000Z");
 
     cy.get(" article .article-details")
-    .last()
-    .find("a")
-    .should(
-      "contain",
-      "Mock Article 2 about Ukraine"
-    );
-  cy.get("article .article-details")
-    .last()
-    .find("p")
-    .should("contain", "Mock Author");
-  cy.get("article .article-details")
-    .last()
-    .find("p")
-    .should("contain", "2022-01-01T00:00:00.000Z");
+      .last()
+      .find("a")
+      .should("contain", "Mock Article 2 about Ukraine");
+    cy.get("article .article-details")
+      .last()
+      .find("p")
+      .should("contain", "Mock Author");
+    cy.get("article .article-details")
+      .last()
+      .find("p")
+      .should("contain", "2022-01-01T00:00:00.000Z");
   });
 });
