@@ -1,0 +1,26 @@
+{
+  "status": "ok",
+  "totalResults": 2,
+  "articles": [
+    {
+      "source": { "id": null, "name": "Mock News" },
+      "author": "Mock Author",
+      "title": "Mock Article 1 about Ukraine",
+      "description": "This is a mock description about Ukraine",
+      "url": "http://example.com",
+      "urlToImage": "http://example.com/image.jpg",
+      "publishedAt": "2022-01-01T00:00:00.000Z",
+      "content": "This is mock content about Ukraine"
+    },
+    {
+      "source": { "id": null, "name": "Mock News" },
+      "author": "Mock Author",
+      "title": "Mock Article 2 about Ukraine",
+      "description": "This is another mock description about Ukraine",
+      "url": "http://example.com",
+      "urlToImage": "http://example.com/image.jpg",
+      "publishedAt": "2022-01-01T00:00:00.000Z",
+      "content": "This is more mock content about Ukraine"
+    }
+  ]
+}
