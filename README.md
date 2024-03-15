@@ -18,4 +18,7 @@ install dependencies
 start the app  
 `npm run dev`  
 
-navigate to `http://localhost:5173/`
+navigate to `http://localhost:5173/`  
+
+To run cypress testing:  
+`npm run cy`
