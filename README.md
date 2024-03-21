@@ -1,6 +1,6 @@
 # News Reader UI
 
-News Reader is a clone of Google News which should demonstrate knowledge of React fundamentals. Utilizing the News API, asynchronous JS, and fetch API to serve articles to the user. On initial load, trending articles are displayed on the landing page. The user can also query specific topics using the search bar. Clicking on the title `News Reader` will rest the displayed articles back to the "trending" articles  
+News Reader is a clone of Google News that demonstrates React fundamentals knowledge. Utilizing the News API, asynchronous JS, and fetch API to serve articles to the user. On initial load, trending articles are displayed on the landing page. The user can also query specific topics using the search bar. Clicking on the title `News Reader` will reset the displayed articles back to the "trending" articles  
 
 [project board](https://website-name.com](https://github.com/users/rickytrandev/projects/5)https://github.com/users/rickytrandev/projects/5)
 
